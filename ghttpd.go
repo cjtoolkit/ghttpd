@@ -7,6 +7,7 @@ import (
 	"mime"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/cjtoolkit/ghttpd/config"
 	"github.com/pelletier/go-toml"
@@ -16,6 +17,10 @@ func fatal(err error) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+func cleanMime(str string) string {
+	return strings.ToLower(strings.TrimSpace(str))
 }
 
 func parseUserConfig(c *config.Config) {
@@ -35,7 +40,7 @@ func parseUserConfig(c *config.Config) {
 	fatal(err)
 
 	for _, m := range c.Mimes {
-		mime.AddExtensionType(m.Extension, m.Type)
+		mime.AddExtensionType(cleanMime(m.Extension), cleanMime(m.Type))
 	}
 }
 
@@ -70,6 +75,7 @@ func main() {
 		log.Println(http.ListenAndServeTLS(c.Http.Address, c.Tls.Cert, c.Tls.Key, fn))
 		return
 	}
+
 	log.Println("Running Server @", c.Http.Address)
 	log.Println(http.ListenAndServe(c.Http.Address, fn))
 }
