@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/cjtoolkit/ghttpd.svg?branch=master)](https://travis-ci.com/cjtoolkit/ghttpd)
+
 # GHTTPD
 
 Lightweight HTTP Server for Static Files.
