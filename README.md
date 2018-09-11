@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/cjtoolkit/ghttpd.svg?branch=master)](https://travis-ci.com/cjtoolkit/ghttpd)
+[![Build Status](https://travis-ci.org/cjtoolkit/ghttpd.svg?branch=master)](https://travis-ci.org/cjtoolkit/ghttpd)
 
 # GHTTPD
 
